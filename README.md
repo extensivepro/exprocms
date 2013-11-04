@@ -9,6 +9,6 @@ exprocms is small and light CMS. Published static content (such as HTML, javascr
 ## TODO
 - Define publish format
 - static templete
-- rich text editor
+- rich text editor which integrate [bootstrap-wysiwyg](https://github.com/mindmup/bootstrap-wysiwyg/)
 - dynamic templete design GUI inspired by [layoutit](http://www.layoutit.com/cn)
-- resizeable UI block on designer
+- resizeable UI block on designer by JQuery UI resizeable
