@@ -7,12 +7,12 @@ Content Management System base on NodeJS
 exprocms is small and light CMS. Published static content (such as HTML, javascript, css, etc) which splite from system. Base on [MEAN](https://github.com/linnovate/mean) Boilerplate to develop.
 
 ## Todo
-- [ ] [jekyll](http://jekyllrb.com/) generate, preview page automaticlly when application running.
-- [ ] Content management visually, include articl, image, video and custom resouce. Support responsive designed resouce.
-- [ ] [Markdown](http://daringfireball.net/projects/markdown/) editor [EpicEditor](https://github.com/OscarGodson/EpicEditor) embeded in online edit.
-- [ ] config publish destination (such as oss, s3, cloud host, etc)
-- [ ] dynamic templete design GUI inspired by [layoutit](http://www.layoutit.com/cn)
-- [ ] resizeable UI block on designer by JQuery UI resizeable
+- [jekyll](http://jekyllrb.com/) generate, preview page automaticlly when application running.
+- Content management visually, include articl, image, video and custom resouce. Support responsive designed resouce.
+- [Markdown](http://daringfireball.net/projects/markdown/) editor [EpicEditor](https://github.com/OscarGodson/EpicEditor) embeded in online edit.
+- config publish destination (such as oss, s3, cloud host, etc)
+- dynamic templete design GUI inspired by [layoutit](http://www.layoutit.com/cn)
+- resizeable UI block on designer by JQuery UI resizeable
 	
 ## Prerequisites
 * Node.js - Download and Install [Node.js](http://www.nodejs.org/download/). You can also follow [this gist](https://gist.github.com/isaacs/579814) for a quick and easy way to install Node.js and npm
