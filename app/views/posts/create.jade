@@ -1,0 +1,31 @@
+//
+   Created with JetBrains WebStorm.
+   User: new-worker
+   Date: 13-12-25
+   Time: 下午1:06
+   To change this template use File | Settings | File Templates.
+
+extends ../layouts/default
+
+block content
+    h1 #{header}
+    form.signin.form-horizontal(action="/posts/create", method="post")
+        .control-group
+            label.control-label(for='address') Title
+            .controls
+                input#title(type='text', name="title",required='required', value=postTitle)
+        .control-group
+            label.control-label(for='address') Content
+            .controls
+                #epiceditor
+        .control-group(style='display:none')
+            .controls
+                textarea#epictextarea(name='content', value=postContent)
+        .control-group(style='display:none')
+            .controls
+                input#contentRec(type='text', name='content')
+        .form-actions
+            input.btn.btn-primary(type='submit', onClick='exportF();') Submit
+            &nbsp;
+            | or&nbsp;
+            a.show-login(href="/posts/list") Back
