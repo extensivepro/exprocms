@@ -1,0 +1,41 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="row-fluid">
+			<div class="page-header">
+			  <h1 class="text-center text-primary">Extensivepro CMS - 泛盈内容管理系统</h1>
+			</div>
+			<div class="login-box">
+				<h2>请登录</h2>
+				<form class="form-horizontal" ng-model="loginUser" ui-keypress="{13:'Login($event)'}">
+					<fieldset>
+					
+						<input class="input-large span12" ng-model="loginUser.username" name="username" type="text" placeholder="用户名" required />
+
+						<input class="input-large span12" ng-model="loginUser.password" name="password" type="password" placeholder="密码" required />
+
+						<div class="clearfix"></div>
+					
+						<label class="remember" for="remember">
+							<input type="checkbox" id="remember"> 记住我 </input>
+						</label>
+					
+						<div class="clearfix"></div>
+
+						<button type="submit" class="btn btn-primary span12" ng-click="Login()">登录</button>
+					</fieldset>	
+				</form>
+				<div class="alert alert-block alert-danger fade in" style="display: none">
+		      <button type="button" class="close" onclick="$('.alert').hide()">×</button>
+		      <h4 class="alert-heading">警告！</h4>
+		      <p class="ng-binding">{{errorLoginDetail}}</p>
+		    </div>
+				<hr>
+				<p class="text-center"> 泛盈科技 @2013</p>
+				<!-- <h3>Forgot Password?</h3>
+				<p>
+					No problem, <a href="login.html#">click here</a> to get a new password.
+				</p>	 -->
+			</div>
+		</div><!--/row-->
+	</div><!--/fluid-row-->
+</div><!--/.fluid-container-->

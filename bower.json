@@ -2,11 +2,24 @@
     "name": "mean",
     "version": "0.1.0",
     "dependencies": {
+        "angular": "guanbo/bower-angular#1.2.0rc2",
+        "angular-resource": "angular/bower-angular-resource#1.2.0-rc.2",
+        "angular-cookies": "angular/bower-angular-cookies#1.2.0-rc.2",
+        "angular-route": "angular/bower-angular-route#1.2.0-rc.2",
+        "angular-bootstrap": "~0.5.0",
         "bootstrap": "2.3.2",
-        "angular": "1.0.6",
-        "angular-resource": "1.0.6",
-        "angular-cookies": "1.0.6",
-        "angular-bootstrap": "0.6.0",
-        "angular-ui-utils": "0.0.4"
+        "modernizr": "*",
+        "json3": "~3.2.4",
+        "jquery": "1.10.2",
+        "jquery.cookie": "*",
+        "jquery-migrate": "1.2.1",
+        "jquery-ui-touch-punch": "*",
+        "fullcalendar": "~1.6.3",
+        "excanvas": "*",
+        "raphael": "2.1.0"
+    },
+    "devDependencies": {
+        "angular-mocks": "~1.0.5",
+        "angular-scenario": "~1.0.5"
     }
 }
