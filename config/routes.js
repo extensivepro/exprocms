@@ -1,9 +1,17 @@
 module.exports = function(app, passport, auth) {
     //User Routes
     var users = require('../app/controllers/users');
+    //site routes
+    var site = require ('../app/controllers/site_manage');
+
+    var articles = require('../app/controllers/articles');
     app.get('/signin', users.signin);
     app.get('/signup', users.signup);
     app.get('/signout', users.signout);
+
+    //setting up site information
+    app.get('/site_manage', site.show);
+    app.post('/site_manage/update', site.post);
 
     //Setting up the users api
     app.post('/users', users.create);
@@ -61,7 +69,7 @@ module.exports = function(app, passport, auth) {
     app.param('userId', users.user);
 
     //Article Routes
-    var articles = require('../app/controllers/articles');
+
     app.get('/articles', articles.all);
     app.post('/articles', auth.requiresLogin, articles.create);
     app.get('/articles/:articleId', articles.show);

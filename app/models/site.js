@@ -24,12 +24,12 @@ var siteSchema = new Schema({
         default: '',
         trim: true
     },
-    address: {
+    email: {
         type: String,
         default: '',
         trim: true
     },
-    email: {
+    address: {
         type: String,
         default: '',
         trim: true
@@ -54,5 +54,17 @@ siteSchema.path('address').validate(function(address) {
 siteSchema.path('email').validate(function(email) {
     return email.length;
 }, 'Email cannot be blank');
+
+/**
+ *Static methods
+ */
+siteSchema.statics = {
+    load: function(id, cb) {
+        this.findOne({
+            _id: id
+        }).populate('owner').exec(cb);
+    }
+};
+
 
 mongoose.model('Site', siteSchema);
