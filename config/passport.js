@@ -24,13 +24,15 @@ module.exports = function(passport) {
 
     //Use local strategy
     passport.use(new LocalStrategy({
-            usernameField: 'email',
+            usernameField: 'username',
             passwordField: 'password'
         },
-        function(email, password, done) {
+        function(username, password, done) {
+            console.log("username:" + username + " password:" + password);
             User.findOne({
-                email: email
+                username: username
             }, function(err, user) {
+
                 if (err) {
                     return done(err);
                 }
@@ -44,6 +46,7 @@ module.exports = function(passport) {
                         message: 'Invalid password'
                     });
                 }
+                console.log("user是:" + user);
                 return done(null, user);
             });
         }
