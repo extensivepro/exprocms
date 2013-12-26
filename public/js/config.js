@@ -17,9 +17,6 @@ window.app.config(['$routeProvider',
         when('/', {
             templateUrl: 'views/index.html'
         }).
-        when('/site_manage', {
-            templateUrl: 'views/site_manage.html'
-        }).
         otherwise({
             redirectTo: '/'
         });

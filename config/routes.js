@@ -4,6 +4,8 @@ module.exports = function(app, passport, auth) {
     //site routes
     var site = require ('../app/controllers/site_manage');
 
+    var posts = require('../app/controllers/posts');
+
     var articles = require('../app/controllers/articles');
     app.get('/signin', users.signin);
     app.get('/signup', users.signup);
@@ -12,6 +14,11 @@ module.exports = function(app, passport, auth) {
     //setting up site information
     app.get('/site_manage', site.show);
     app.post('/site_manage/update', site.post);
+
+    //setting up posts api
+    app.get('/posts/create', posts.create);
+    app.post('/posts/create', posts.save);
+    app.get('/posts', posts.show);
 
     //Setting up the users api
     app.post('/users', users.create);
