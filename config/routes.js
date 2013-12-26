@@ -18,7 +18,11 @@ module.exports = function(app, passport, auth) {
     //setting up posts api
     app.get('/posts/create', posts.create);
     app.post('/posts/create', posts.save);
-    app.get('/posts', posts.show);
+    app.post('/posts/list', posts.all);
+    app.get('/posts/list', posts.show);
+
+    app.get('/posts/view', posts.edit);
+    app.post('/posts/view', posts.fetch);
 
     //Setting up the users api
     app.post('/users', users.create);

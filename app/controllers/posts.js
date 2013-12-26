@@ -11,6 +11,43 @@ var mongoose = require('mongoose'),
     _ = require('underscore');
 
 
+exports.posts = function(req, res, next, id) {
+    Post.load(id, function(err, post) {
+        if (err) return next(err);
+        if (!post) return next(new Error('Failed to load article ' + id));
+        req.post = post;
+        next();
+    });
+};
+
+var id;
+exports.edit = function(req, res) {
+    //console.log(req.query.id);
+    id = req.query.id;
+
+    Post.findOne({_id: req.query.id}).exec(function(err, post) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            if (post == null) {
+                res.redirect('/');
+            } else {
+                var title = post.title;
+                var content = post.content;
+                //console.log(content);
+                //res.jsonp(content);
+                res.render('posts/view', {
+                    header: 'Post Edit',
+                    postTitle: title,
+                    postContent: content
+                });
+            }
+        }
+    });
+}
+
 exports.create = function (req, res) {
     res.render ('posts/create', {
         header: '新建Post',
@@ -32,31 +69,48 @@ exports.save = function (req, res) {
                     res.redirect('/');
                 } else {
                     res.jsonp(post);
+                    res.redirect('/posts/list');
                 }
             });
         }
     });
 }
 
-exports.show = function (req, res) {
-    Post.findOne().exec(function(err, post) {
+exports.all = function(req, res) {
+    Post.find().sort('-created').exec(function(err, posts) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
+            res.jsonp(posts);
+        }
+    });
+};
+
+exports.fetch = function(req, res) {
+    console.log(id);
+    Post.findOne({_id: id}).exec(function(err, post) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            console.log('33');
             if (post == null) {
                 res.redirect('/');
             } else {
-                var title = post.title;
                 var content = post.content;
                 console.log(content);
-                res.render('posts/show', {
-                    header: 'Post管理',
-                    postTitle: title,
-                    postContent: content
-                });
+                res.jsonp(content);
+
             }
         }
+    });
+};
+
+exports.show = function(req, res) {
+    res.render('posts/list', {
+        header: 'Post List'
     });
 }

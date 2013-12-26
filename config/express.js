@@ -30,8 +30,8 @@ module.exports = function(app, passport, db) {
         app.use(express.logger('dev'));
     }
 
-    //Set views path, template engine and default layout
-    app.set('views', config.root + '/app/views');
+    //Set view path, template engine and default layout
+    app.set('view', config.root + '/app/view');
     app.set('view engine', 'jade');
 
     //Enable jsonp

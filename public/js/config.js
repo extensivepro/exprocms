@@ -3,19 +3,19 @@ window.app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
         when('/articles', {
-            templateUrl: 'views/articles/list.html'
+            templateUrl: 'view/articles/list.html'
         }).
         when('/articles/create', {
-            templateUrl: 'views/articles/create.html'
+            templateUrl: 'view/articles/create.html'
         }).
         when('/articles/:articleId/edit', {
-            templateUrl: 'views/articles/edit.html'
+            templateUrl: 'view/articles/edit.html'
         }).
         when('/articles/:articleId', {
-            templateUrl: 'views/articles/view.html'
+            templateUrl: 'view/articles/view.html'
         }).
         when('/', {
-            templateUrl: 'views/index.html'
+            templateUrl: 'view/index.html'
         }).
         otherwise({
             redirectTo: '/'

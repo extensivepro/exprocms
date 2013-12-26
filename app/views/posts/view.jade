@@ -17,12 +17,15 @@ block content
         .control-group
             label.control-label(for='address') Content
             .controls
-                #epiceditor
-        .control-group
+                #epiceditor(style='height:400px;')
+        .control-group(style='display:none')
             .controls
-                input(type='text', name='content', value=postContent)
+                textarea#contentRec(type='text', name='content', value=postContent)
+        .control-group(style='display:none')
+            .controls
+                textarea#epictextarea
         .form-actions
             input.btn.btn-primary(type='submit') Submit
             &nbsp;
             | or&nbsp;
-            a.show-login(href="/") Back
+            a.show-login(href="/posts/list") Back
