@@ -1,0 +1,33 @@
+//
+   Created with JetBrains WebStorm.
+   User: new-worker
+   Date: 13-12-24
+   Time: 上午9:37
+   To change this template use File | Settings | File Templates.
+
+extends layouts/default
+
+block content
+  h1 #{header}
+  form.signin.form-horizontal(action="/site_manage/update", method="post")
+    .control-group
+        label.control-label(for='owner') Owner
+        .controls
+            input#owner(type='text', name="owner",required='required', value=owner)
+    .control-group
+        label.control-label(for='telephone') Telephone
+        .controls
+            input#telephone(type='text', name="telephone",required='required', pattern='^[0-9]*$', value=telephone)
+    .control-group
+        label.control-label(for='email') E-mail
+        .controls
+            input#email(type='email', name="email",required='required', value=email)
+    .control-group
+        label.control-label(for='address') Address
+        .controls
+            input#address(type='text', name="address",required='required', value=address)
+    .form-actions
+        button.btn.btn-primary(type='submit') Submit
+        &nbsp;
+        | or&nbsp;
+        a.show-login(href="/") Back

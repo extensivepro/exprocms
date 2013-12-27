@@ -45,6 +45,8 @@ module.exports = function(app, passport, db) {
         app.use(express.bodyParser());
         app.use(express.methodOverride());
 
+        app.use(express.cookieParser());
+
         //express/mongo session storage
         app.use(express.session({
             secret: 'MEAN',
