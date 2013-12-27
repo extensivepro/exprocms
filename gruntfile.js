@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             jade: {
-                files: ['app/view/**'],
+                files: ['app/views/**'],
                 options: {
                     livereload: true,
                 },
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                 },
             },
             html: {
-                files: ['public/view/**'],
+                files: ['public/views/**'],
                 options: {
                     livereload: true,
                 },
