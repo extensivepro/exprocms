@@ -1,0 +1,44 @@
+<div ng-controller="SitesController">
+    <div >
+        <form class='form-horizontal' action='/site_manage/update' method='post' ng-init="fill_value()">
+            <div class='control-label' >
+                <label for='owner'>站主</label>
+            </div>
+            <div class='controls' >
+                <input id='owner' type='text' name='owner' required="required" ng-model="owner_rev"/>
+            </div>
+            <hr>
+
+            <div class='control-label' >
+                <label for='telephone'>电话</label>
+            </div>
+            <div class='controls' >
+                <input id='telephone' type='text' name='telephone' required="required" ng-model="telephone_rev"/>
+            </div>
+            <hr>
+
+            <div class='control-label' >
+                <label for='email'>Email</label>
+            </div>
+            <div class='controls' >
+                <input id='email' type='text' name='email' required="required" ng-model="email_rev"/>
+            </div>
+            <hr>
+
+            <div class='control-label' >
+                <label for='address'>地址</label>
+            </div>
+            <div class='controls' >
+                <input id='address' type='text' name='address' required="required" ng-model="address_rev"/>
+            </div>
+            <hr>
+
+            <div style="margin-left: 180px;margin-top: 20px" >
+                <input class='btn btn-primary' type='submit' onclick="alert('网站信息已更新');"/>
+            </div>
+        </form>
+
+        <div ng-include="currentView">
+        </div>
+    </div>
+</div>	

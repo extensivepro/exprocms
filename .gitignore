@@ -3,4 +3,6 @@
 .sass-cache/
 node_modules/
 public/lib
-.idea/
+.idea
+public/upload
+
