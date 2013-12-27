@@ -4,8 +4,8 @@
 var mongoose = require('mongoose'),
     Article = mongoose.model('Article'),
     _ = require('underscore');
-
-
+var fs = require("fs");
+var path = require('path');
 /**
  * Find article by id
  */
@@ -88,3 +88,52 @@ exports.all = function(req, res) {
         }
     });
 };
+
+// 生成markdown文档
+exports.preview = function(req, res) {
+    console.log('进入生成markdown文档界面');
+    console.log(req.body);
+    var text = req.body.text;
+    var title = req.body.title;
+    var date = req.body.date;
+
+    // 异步写
+    fs.open("./public/article/_posts/" + date+'-'+title + '.markdown',"w",0644,function(e,fd){
+        if(e) throw e;
+        fs.write(fd,text,0,'utf8',function(e){
+            if(e) {
+
+                throw e;
+            }
+            console.log("写入文件成功");
+            fs.closeSync(fd);
+            return res.json(200,{message:'成功'});
+        })
+    });
+
+    // 同步写
+/*    var fd = fs.openSync("./public/article/_posts/" + date+'-'+title + '.markdown',"w",0644);
+    fs.writeSync(fd, text,0,'utf8')
+    fs.closeSync(fd);
+    return res.json(200,{message:'成功'});*/
+
+
+
+};
+
+/*exports.display = function(req, res) {
+//    console.log("我进来啦");
+    var temp = req.query.id;
+    console.log("id:" + temp);
+    var arr = temp.split('/');
+    var year = arr[0];
+    var month = arr[1];
+    var day = arr[2];
+    var title = arr[3];
+    console.log("year:" + year + " month:" + month + " day:" + day + " title:" + title);
+    var myPath = __dirname + '/../../jekyll/article/_site/' + year + "/" + month + "/" + day + "/" + title;
+    console.log("myPath:" + myPath);
+    var html = path.normalize(myPath);
+    console.log("html:" + html);
+    return res.sendfile(html);
+}*/

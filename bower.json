@@ -6,6 +6,16 @@
         "angular-resource": "angular/bower-angular-resource#1.2.0-rc.2",
         "angular-cookies": "angular/bower-angular-cookies#1.2.0-rc.2",
         "angular-route": "angular/bower-angular-route#1.2.0-rc.2",
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        "angular-sanitize":"angular/bower-angular-sanitize#1.2.0-rc.2",
+        "ng-file-upload":"*",
+>>>>>>> c6072fc... dependency modification
+=======
+        "angular-sanitize":"angular/bower-angular-sanitize#1.2.0-rc.2",
+
+>>>>>>> b69176f... post management transplanted to new theme with functionalities:
         "angular-bootstrap": "~0.5.0",
         "bootstrap": "2.3.2",
         "modernizr": "*",

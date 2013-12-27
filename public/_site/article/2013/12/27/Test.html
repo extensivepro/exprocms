@@ -1,0 +1,185 @@
+<h1 id="exprocms">exprocms</h1>
+
+<p>Content Management System base on NodeJS</p>
+
+<h2 id="intro">Intro</h2>
+
+<p>exprocms is small and light CMS. Published static content (such as HTML, javascript, css, etc) which splite from system. Base on <a href="https://github.com/linnovate/mean">MEAN</a> Boilerplate to develop.</p>
+
+<h2 id="todo">Todo</h2>
+
+<ul>
+<li><a href="http://jekyllrb.com/">jekyll</a> generate, preview page automaticlly when application running.</li>
+
+<li>Content management visually, include articl, image, video and custom resouce. Support responsive designed resouce.</li>
+
+<li><a href="http://daringfireball.net/projects/markdown/">Markdown</a> editor <a href="https://github.com/OscarGodson/EpicEditor">EpicEditor</a> embeded in online edit.</li>
+
+<li>config publish destination (such as oss, s3, cloud host, etc)</li>
+
+<li>dynamic templete design GUI inspired by <a href="http://www.layoutit.com/cn">layoutit</a></li>
+
+<li>resizeable UI block on designer by JQuery UI resizeable</li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+<li>Node.js - Download and Install <a href="http://www.nodejs.org/download/">Node.js</a>. You can also follow <a href="https://gist.github.com/isaacs/579814">this gist</a> for a quick and easy way to install Node.js and npm</li>
+
+<li>MongoDB - Download and Install <a href="http://www.mongodb.org/downloads">MongoDB</a>. Make sure it’s running on the default port (27017).</li>
+
+<li>Jekyll - Download and Install <a href="http://jekyllrb.com/">jekyll</a>. Make sure <code>jekyll -v</code> output version like <code>jekyll 1.4.2</code></li>
+</ul>
+
+<h3 id="tools_prerequisites">Tools Prerequisites</h3>
+
+<ul>
+<li>NPM - Node.js package manager, should be installed when you install node.js.</li>
+
+<li>Bower - Web package manager, installing <a href="http://bower.io/">Bower</a> is simple when you have npm:</li>
+</ul>
+
+<pre><code>
+$ npm install -g bower
+</code></pre>
+
+<h3 id="optional">Optional</h3>
+
+<ul>
+<li>Grunt - Download and Install <a href="http://gruntjs.com">Grunt</a>.</li>
+</ul>
+
+<h2 id="additional_packages">Additional Packages</h2>
+
+<ul>
+<li>Express - Defined as npm module in the <a href="package.json">package.json</a> file.</li>
+
+<li>Mongoose - Defined as npm module in the <a href="package.json">package.json</a> file.</li>
+
+<li>Passport - Defined as npm module in the <a href="package.json">package.json</a> file.</li>
+
+<li>AngularJS - Defined as bower module in the <a href="bower.json">bower.json</a> file.</li>
+
+<li>Twitter Bootstrap - Defined as bower module in the <a href="bower.json">bower.json</a> file.</li>
+
+<li>UI Bootstrap - Defined as bower module in the <a href="bower.json">bower.json</a> file.</li>
+</ul>
+
+<h2 id="quick_install">Quick Install</h2>
+
+<p>The quickest way to get started with MEAN is to clone the project and utilize it like this:</p>
+
+<p>Install dependencies:</p>
+
+<pre><code>$ npm install</code></pre>
+
+<p>We recommend using <a href="https://github.com/gruntjs/grunt-cli">Grunt</a> to start the server:</p>
+
+<pre><code>$ grunt</code></pre>
+
+<p>When not using grunt you can use:</p>
+
+<pre><code>$ node server</code></pre>
+
+<p>Then open a browser and go to:</p>
+
+<pre><code>http://localhost:3000</code></pre>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>During install some of you may encounter some issues, most of this issues can be solved by one of the following tips. If you went through all this and still can’t solve the issue, feel free to contact me(Amos), via the repository issue tracker or the links provided below.</p>
+
+<h4 id="update_npm_bower_or_grunt">Update NPM, Bower or Grunt</h4>
+
+<p>Sometimes you may find there is a weird error during install like npm’s <em>Error: ENOENT</em>, usually updating those tools to the latest version solves the issue.</p>
+
+<p>Updating NPM:</p>
+
+<pre><code>
+$ npm update -g npm
+</code></pre>
+
+<p>Updating Grunt:</p>
+
+<pre><code>
+$ npm update -g grunt-cli
+</code></pre>
+
+<p>Updating Bower:</p>
+
+<pre><code>
+$ npm update -g bower
+</code></pre>
+
+<h4 id="cleaning_npm_and_bower_cache">Cleaning NPM and Bower cache</h4>
+
+<p>NPM and Bower has a caching system for holding packages that you already installed. We found that often cleaning the cache solves some troubles this system creates.</p>
+
+<p>NPM Clean Cache:</p>
+
+<pre><code>
+$ npm cache clean
+</code></pre>
+
+<p>Bower Clean Cache:</p>
+
+<pre><code>
+$ bower cache clean
+</code></pre>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>All configuration is specified in the <a href="config/">config</a> folder, particularly the <a href="config/config.js">config.js</a> file and the <a href="config/env/">env</a> files. Here you will need to specify your application name, database name, as well as hook up any social app keys if you want integration with Twitter, Facebook, GitHub or Google.</p>
+
+<h3 id="environmental_settings">Environmental Settings</h3>
+
+<p>There are three environments provided by default, <strong>development</strong>, <strong>test</strong>, and <strong>production</strong>. Each of these environments has the following configuration options:</p>
+
+<ul>
+<li><strong>db</strong> - This is the name of the MongoDB database to use, and is set by default to <strong>mean-dev</strong> for the development environment.</li>
+
+<li><strong>app.name</strong> - This is the name of your app or website, and can be different for each environment. You can tell which environment you are running by looking at the TITLE attribute that your app generates.</li>
+
+<li><strong>Social OAuth Keys</strong> - Facebook, GitHub, Google, Twitter. You can specify your own social application keys here for each platform:
+<ul>
+<li><strong>clientID</strong></li>
+
+<li><strong>clientSecret</strong></li>
+
+<li><strong>callbackURL</strong></li>
+</ul>
+</li>
+</ul>
+
+<p>To run with a different environment, just specify NODE_ENV as you call grunt:</p>
+
+<pre><code>$ NODE_ENV=test grunt</code></pre>
+
+<p>If you are using node instead of grunt, it is very similar:</p>
+
+<pre><code>$ NODE_ENV=test node server</code></pre>
+
+<blockquote>
+<p>NOTE: Running Node.js applications in the <strong>production</strong> environment enables caching, which is disabled by default in all other environments.</p>
+</blockquote>
+
+<h2 id="getting_started">Getting Started</h2>
+
+<p>We pre-included an article example, check it out:</p>
+
+<ul>
+<li><a href="https://github.com/linnovate/mean/blob/master/app/models/article.js">The Model</a> - Where we define our object schema.</li>
+
+<li><a href="https://github.com/linnovate/mean/blob/master/app/controllers/articles.js">The Controller</a> - Where we take care of our backend logic.</li>
+
+<li><a href="https://github.com/linnovate/mean/blob/master/config/routes.js">NodeJS Routes</a> - Where we define our REST service routes.</li>
+
+<li><a href="https://github.com/linnovate/mean/blob/master/public/js/config.js">AngularJs Routes</a> - Where we define our CRUD routes.</li>
+
+<li><a href="https://github.com/linnovate/mean/blob/master/public/js/services/articles.js">The AngularJs Service</a> - Where we connect to our REST service.</li>
+
+<li><a href="https://github.com/linnovate/mean/blob/master/public/js/controllers/articles.js">The AngularJs Controller</a> - Where we take care of our frontend logic.</li>
+
+<li><a href="https://github.com/linnovate/mean/blob/master/public/views/articles">The AngularJs Views Folder</a> - Where we keep our CRUD views.</li>
+</ul>

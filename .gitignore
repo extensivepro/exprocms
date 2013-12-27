@@ -3,4 +3,9 @@
 .sass-cache/
 node_modules/
 public/lib
+<<<<<<< HEAD
 .idea
+public/upload
+=======
+.idea/
+>>>>>>> 0a7408f... add user

@@ -1,0 +1,55 @@
+<div class="box-header">
+	<h2><i ng-class="currentView.icon"></i><span class="break"></span>{{currentView.name}}</h2>
+	<div class="box-icon">
+		<a ng-click="showCreate()" class="btn-puls"><i class="icon-plus" /></a>
+		<a ng-click="refreshList()" class="btn-refresh"><i class="icon-refresh" /></a>
+	</div>
+</div>
+<div class="box-content">
+	<div class="row-fluid">
+		<div class="span6">
+			<label>
+				<select ng-model="pagination.iLength" ng-options="option for option in pagination.iLengthOptions"></select>条/页
+			</label>
+		</div>
+		<div class="span6">
+			<form class="form-search" ng-model="searchOptions">
+				<div class="input-append">
+					<input class="input-xlarge search-query focuse" type="text" ng-model="searchOptions.text" tooltip="{{searchOptions.tooltip}}" tooltip-trigger="focus">
+					<button class="btn btn-primary" ng-click="refreshList()" ui-keypress="{13:'refreshList($event)'}">搜索</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<table class="table table-striped table-bordered bootstrap-datatable datatable">
+		<thead>
+			<tr>
+				<th ng-repeat="field in fields">{{field.title}}</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+	  <tbody>
+			<tr ng-repeat="entity in entities">
+				<td class="center" ng-repeat="field in fields">
+					<span ng-class="entity.fieldClass[field.name]" ng-if="field.value">{{field.value(entity)}}</span>
+					<span ng-class="entity.fieldClass[field.name]" ng-if="!field.value">{{valueOfKeyString(entity, field.name)}}</span>
+				</td>
+				<td class="center btn-toolbar">
+					<a ng-repeat="op in fieldOperations" ng-class="op.class" ng-click={{op.op}} class="btn">
+						<i ng-class="op.icon"></i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="row-fluid">
+		<div class="span12">
+			显示 {{pagination.iStart}} ~ {{pagination.iEnd}} / {{pagination.iTotal}} 条
+		</div>
+		<div class="span12 center">
+			<pagination num-pages="pagination.iPages" current-page="pagination.iPage" previous-text="上一页" next-text="下一页"></pagination>
+		</div>
+	</div>
+</div>

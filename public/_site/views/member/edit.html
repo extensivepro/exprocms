@@ -1,0 +1,61 @@
+<div class="control-group" ng-if="!entity._id">
+	<label class="control-label">编号</label>
+	<div class="controls">
+		<input class="input-xlarge focused" type="text" ng-model="entity.code" required >
+		<i class="icon-asterisk" />
+	</div>
+</div>
+<div class="control-group" ng-if="!entity._id">
+	<label class="control-label">用户名</label>
+	<div class="controls">
+		<input class="input-xlarge" type="text" ng-model="entity.user.username" required >
+		<i class="icon-asterisk" />
+	</div>
+</div>
+<div class="control-group" ng-if="!entity._id">
+	<label class="control-label">密码</label>
+	<div class="controls">
+		<input class="input-xlarge" type="password" ng-model="entity.user.password" required >
+		<i class="icon-asterisk" />
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">姓名</label>
+	<div class="controls">
+		<div class="btn-group">
+			<input class="input-xlarge" type="text" ng-model="entity.user.name" required >
+			<i class="icon-asterisk" />
+		</div>
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">身份证</label>
+	<div class="controls">
+		<input class="input-xlarge" type="text" ng-model="entity.user.idcard">
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">性别</label>
+	<div class="controls">
+		<div class="btn-group">
+      <button type="button" class="btn btn-warning" ng-model="entity.user.male" btn-radio="true">男</button>
+      <button type="button" class="btn btn-success" ng-model="entity.user.male" btn-radio="false">女</button>
+		</div>
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">电话</label>
+	<div class="controls">
+		<div class="btn-group">
+			<input class="input-xlarge" type="text" ng-model="entity.user.phone" required>
+			<i class="icon-asterisk" />
+		</div>
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">门店</label>
+	<div class="controls">
+		<select ng-model="entity.shop" ng-options="s.name for s in shops" ng-init="fetchShops()" required ></select>
+		<i class="icon-asterisk" />
+	</div>
+</div>
