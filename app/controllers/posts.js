@@ -9,6 +9,8 @@
 var mongoose = require('mongoose'),
     Post = mongoose.model('Post'),
     formidable = require('formidable'),
+    fs = require('fs'),
+    sys = require('sys'),
     _ = require('underscore');
 
 formidable.IncomingForm.prototype.uploadDir = './public/upload';
@@ -65,14 +67,15 @@ exports.save = function (req, res) {
             });
         } else {
             var post = new Post(req.body);
-            post.content = post.content.substring(0, post.content.length-1);
-            //console.log(post.content);
+            post.content = post.content.substring(0, post.content.length);
+
             post.save(function(err) {
                 if (err) {
+                    throw err;
                     res.redirect('/');
                 } else {
                     res.jsonp(post);
-                    res.redirect('/posts/list');
+                    res.redirect('/#!/crm?view=2');
                 }
             });
         }
@@ -114,7 +117,6 @@ exports.show = function(req, res) {
 }
 
 exports.upToDate = function(req, res) {
-
     Post.remove({_id: req.body.id}).exec(function(err, post) {
         if (err) {
             res.render('error', {
@@ -128,7 +130,7 @@ exports.upToDate = function(req, res) {
                     res.redirect('/');
                 } else {
                     res.jsonp(post);
-                    res.redirect('/posts/list');
+                    res.redirect('/#!/crm?view=2');
                 }
             });
         }
@@ -143,17 +145,24 @@ exports.delete = function(req, res) {
                 status: 500
             });
         } else {
-            res.redirect('/posts/list');
+            res.redirect('/#!/crm?view=2');
         }
     });
 }
 
 exports.imgUpload = function (req, res) {
-    console.log('uploading image...');
-    var form  = new formidable.IncomingForm();
-    form.parse(req, function(err, fields, files) {
-
-    });
-
-
+    console.log("进入upload");
+    for (var i in req.files) {
+        if (req.files[i].size == 0){
+            // 使用同步方式删除一个文件
+            fs.unlinkSync(req.files[i].path);
+            console.log('Successfully removed an empty file!');
+        } else {
+            var target_path = './public/upload/' + req.files[i].name;
+            // 使用同步方式重命名一个文件
+            fs.renameSync(req.files[i].path, target_path);
+            console.log('Successfully renamed a file!');
+        }
+    }
+    return res.send(target_path);
 }

@@ -1,4 +1,5 @@
-window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap']);
+window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap', 'mdFilter', 'ngSanitize', 'angularFileUpload']);
+
 
 /*
 * 

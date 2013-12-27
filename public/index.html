@@ -43,7 +43,10 @@
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png"> -->
 	<link rel="shortcut icon" href="ico/favicon.png">
-	<!-- end: Favicon and Touch Icons -->	
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/markdown/markdown.js"></script>
+
+	<!-- end: Favicon and Touch Icons -->
 		
 </head>
 
@@ -52,7 +55,7 @@
   <div ng-view></div>
 
 	<!-- start: JavaScript-->
-	<script src="lib/jquery/jquery.min.js"></script>
+
 	<script src="lib/jquery-migrate/jquery-migrate.min.js"></script>
 	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 	<script src="lib/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
@@ -64,20 +67,28 @@
 	<script src="js/jquery.dataTables.min.js"></script>
 	<script src="js/custom.min.js"></script>
 	<!-- Start: AngularJS -->
+    <script src="lib/ng-file-upload/angular-file-upload-shim.min.js"></script>
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular-route/angular-route.min.js"></script>
 	<script src="lib/angular-cookies/angular-cookies.min.js"></script>
 	<script src="lib/angular-resource/angular-resource.min.js"></script>
 	<script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/ng-file-upload/angular-file-upload.min.js"></script>
+
 	<!-- Start: Application -->
+    <script src='/lib/epic-editor/js/epiceditor.js'></script>
+    <script src='/js/posts_list.js'></script>
 	<script src="js/app.js"></script>
 	<script src="js/config.js"></script>
 	<script src="js/directives.js"></script>
-	<script src="js/filters.js"></script>
+    <script src="js/filters.js"></script>
+	<script src="js/custom.min.js"></script>
 	<script src="js/services/users.js"></script>
 	<script src="js/services/shops.js"></script>
 	<script src="js/services/pagination.js"></script>
 	<script src="js/services/localStorage.js"></script>
+	<script src="js/services/articles.js"></script>
 	<script src="js/controllers/sign.js"></script>
 	<script src="js/controllers/index.js"></script>
 	<script src="js/controllers/header.js"></script>
@@ -89,10 +100,12 @@
 	<script src="js/controllers/members.js"></script>
 	<script src="js/controllers/balances.js"></script>
 	<script src="js/controllers/pointLogs.js"></script>
+	<script src="js/controllers/article.js"></script>
+    <script src="js/controllers/site_manage.js"></script>
 	<script src="js/init.js"></script>
 	<!-- End: Application -->
 	<!-- //livereload script rendered  -->
-	<script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
+	<!--<script type="text/javascript" src="http://localhost:35729/livereload.js"></script>-->
 	<!-- end: JavaScript-->
 	
 </body>

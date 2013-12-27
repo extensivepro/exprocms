@@ -42,8 +42,9 @@ module.exports = function(app, passport, db) {
         app.use(express.cookieParser());
 
         //bodyParser should be above methodOverride
-        app.use(express.bodyParser());
+//        app.use(express.bodyParser());
         app.use(express.methodOverride());
+        app.use(express.bodyParser());
 
         app.use(express.cookieParser());
 
@@ -85,10 +86,10 @@ module.exports = function(app, passport, db) {
 
         //Assume 404 since no middleware responded
         app.use(function(req, res, next) {
-            res.status(404).render('404', {
+ /*           res.status(404).render('404', {
                 url: req.originalUrl,
                 error: 'Not found'
-            });
+            });*/
         });
 
     });
