@@ -1,0 +1,14 @@
+//
+   Created with JetBrains WebStorm.
+   User: new-worker
+   Date: 13-12-26
+   Time: 上午11:15
+   To change this template use File | Settings | File Templates.
+extends ../layouts/default
+
+block content
+    h1 #{header}
+    //form.signin.form-horizontal(action="/posts/create", method="get")
+    //    button.btn.btn-primary(type='submit') New Post
+    ul#post_list.post_list(style='list-style:none')
+        script(type='text/javascript', src='/js/posts_list.js')
