@@ -9,6 +9,8 @@
 var mongoose = require('mongoose'),
     Post = mongoose.model('Post'),
     formidable = require('formidable'),
+    fs = require('fs'),
+    sys = require('sys'),
     _ = require('underscore');
 
 formidable.IncomingForm.prototype.uploadDir = './public/upload';
@@ -151,9 +153,17 @@ exports.delete = function(req, res) {
 exports.imgUpload = function (req, res) {
     console.log('uploading image...');
     var form  = new formidable.IncomingForm();
+    form.uploadDir = './public/upload';
+    form.keepExtensions = true;
+    console.log('parsing image...');
     form.parse(req, function(err, fields, files) {
-
+        console.log('parsed image...');
+//        res.redirect('/posts/list');
+        console.log(sys.inspect({files: files}));
+//        fs.writeFile(files.upload.name, files.upload, 'utf8', function (err) {
+//            if (err) throw err;
+//            console.log('file saved');
+//            res.end();
+//        });
     });
-
-
 }

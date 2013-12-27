@@ -35,3 +35,7 @@ block content
             &nbsp;
             | or&nbsp;
             a.show-login(href="/posts/list") Back
+
+    form(enctype='multipart/form-data', action='/upload', method='post')
+        input(type = 'file', name='upload')
+        input.btn(type='submit')
