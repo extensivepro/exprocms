@@ -28,6 +28,8 @@ module.exports = function(app, passport, auth) {
     app.post('/posts/edit', posts.upToDate);
     app.post('/posts/delete', posts.delete);
 
+    app.post('/imgUpload', posts.imgUpload);
+
     //Setting up the users api
     app.post('/users', users.create);
 

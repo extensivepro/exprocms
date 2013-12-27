@@ -9,13 +9,6 @@
 function getCurrentDirectory(){
     var locHref = location.href;
     var locArray = locHref.split("/");
-    /**这里测试locArray效果**
-     for(x in locArray){
-      document.write("locArray[");
-      document.write(x+"]: ");
-      document.write(locArray[x]+"<br />");
-    }
-     **/
     delete locArray[locArray.length-1];
     var dirTxt = locArray.join("/");
     return dirTxt;
@@ -86,9 +79,9 @@ if (getCurrentDirectory().toString().endWith('view/')) {
         }
     });
 } else {
-    content = document.getElementById('contentRec').value || '';
+//    content = document.getElementById('contentRec').value || '';
 
-    opts = {
+        opts = {
 
         container: 'epiceditor',
         textarea: 'epictextarea',

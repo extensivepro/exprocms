@@ -9,11 +9,13 @@ extends ../layouts/default
 
 block content
     h1 #{header}
+
     form.signin.form-horizontal(action="/posts/create", method="post")
         .control-group
             label.control-label(for='address') Title
             .controls
                 input#title(type='text', name="title",required='required', value=postTitle)
+
         .control-group
             label.control-label(for='address') Content
             .controls
@@ -24,6 +26,10 @@ block content
         .control-group(style='display:none')
             .controls
                 input#contentRec(type='text', name='content')
+        .control-group
+            .controls
+                input(type = 'file', name='imgUpload', accept = 'image/*')
+                button.btn(formenctype='multipart/form-data', formaction='/imgUpload', formmethod='post', type='submit') Upload
         .form-actions
             input.btn.btn-primary(type='submit', onClick='exportF();') Submit
             &nbsp;

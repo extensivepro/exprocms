@@ -8,8 +8,11 @@
 
 var mongoose = require('mongoose'),
     Post = mongoose.model('Post'),
+    formidable = require('formidable'),
     _ = require('underscore');
 
+formidable.IncomingForm.prototype.uploadDir = './public/upload';
+formidable.IncomingForm.prototype.keepExtensions = true;
 
 exports.posts = function(req, res, next, id) {
     Post.load(id, function(err, post) {
@@ -143,4 +146,14 @@ exports.delete = function(req, res) {
             res.redirect('/posts/list');
         }
     });
+}
+
+exports.imgUpload = function (req, res) {
+    console.log('uploading image...');
+    var form  = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+
+    });
+
+
 }
