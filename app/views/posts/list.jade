@@ -11,26 +11,4 @@ block content
     form.signin.form-horizontal(action="/posts/create", method="get")
         button.btn.btn-primary(type='submit') New Post
     ul#post_list.post_list(style='list-style:none')
-        script(type='text/javascript')
-            var post_list = document.getElementById('post_list');
-            var data_fetch;
-            $.ajax({
-                type: "post",
-                url: "/posts/list",
-                dataType: "json",
-                success: function (data) {
-                    data_fetch = data;
-                    for(var i = 0; i < data_fetch.length; i ++) {
-                        post_list.innerHTML = post_list.innerHTML +
-                        "<hr><li>" +
-                        "<span>" + JSON.stringify(data[i].date).substring(1, 11) + ' '
-                        + (parseInt(JSON.stringify(data[i].date).substring(12, 14))+8).toString()
-                        + JSON.stringify(data[i].date).substring(14, 20) + "</span> "+
-                        "<h2><a href='/posts/view/?id="+data[i]._id +"'>"+ data[i].title +"</a></h2>" +
-                        "</li>";
-                    }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert(errorThrown);
-                }
-            });
+        script(type='text/javascript', src='/js/posts_list.js')

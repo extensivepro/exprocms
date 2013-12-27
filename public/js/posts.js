@@ -73,10 +73,13 @@ if (getCurrentDirectory().toString().endWith('view/')) {
                 },
                 autogrow: false,
                 autogrow: {
-                    minHeight: 400
+                    minHeight: 400,
+                    maxHeight: 400
                 }
             }
             var editor = new EpicEditor(opts).load();
+
+
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
@@ -122,7 +125,8 @@ if (getCurrentDirectory().toString().endWith('view/')) {
         },
         autogrow: false,
         autogrow: {
-            minHeight: 400
+            minHeight: 400,
+            maxHeight: 400
         }
     }
     var editor = new EpicEditor(opts).load();

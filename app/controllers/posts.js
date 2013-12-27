@@ -36,12 +36,11 @@ exports.edit = function(req, res) {
             } else {
                 var title = post.title;
                 var content = post.content;
-                //console.log(content);
-                //res.jsonp(content);
                 res.render('posts/view', {
                     header: 'Post Edit',
                     postTitle: title,
-                    postContent: content
+                    postContent: content,
+                    postId: id
                 });
             }
         }
@@ -63,7 +62,8 @@ exports.save = function (req, res) {
             });
         } else {
             var post = new Post(req.body);
-            console.log(post);
+            post.content = post.content.substring(0, post.content.length-1);
+            //console.log(post.content);
             post.save(function(err) {
                 if (err) {
                     res.redirect('/');
@@ -77,11 +77,9 @@ exports.save = function (req, res) {
 }
 
 exports.all = function(req, res) {
-    Post.find().sort('-created').exec(function(err, posts) {
+    Post.find().sort('-date').exec(function(err, posts) {
         if (err) {
-            res.render('error', {
-                status: 500
-            });
+
         } else {
             res.jsonp(posts);
         }
@@ -89,19 +87,16 @@ exports.all = function(req, res) {
 };
 
 exports.fetch = function(req, res) {
-    console.log(id);
     Post.findOne({_id: id}).exec(function(err, post) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
-            console.log('33');
             if (post == null) {
                 res.redirect('/');
             } else {
                 var content = post.content;
-                console.log(content);
                 res.jsonp(content);
 
             }
@@ -112,5 +107,40 @@ exports.fetch = function(req, res) {
 exports.show = function(req, res) {
     res.render('posts/list', {
         header: 'Post List'
+    });
+}
+
+exports.upToDate = function(req, res) {
+
+    Post.remove({_id: req.body.id}).exec(function(err, post) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            var post = new Post(req.body);
+            post.content = post.content.substring(0, post.content.length);
+            post.save(function(err) {
+                if (err) {
+                    res.redirect('/');
+                } else {
+                    res.jsonp(post);
+                    res.redirect('/posts/list');
+                }
+            });
+        }
+    });
+}
+
+exports.delete = function(req, res) {
+
+    Post.remove({_id: req.body.id}).exec(function(err, post) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.redirect('/posts/list');
+        }
     });
 }
