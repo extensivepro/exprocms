@@ -68,9 +68,10 @@ exports.save = function (req, res) {
         } else {
             var post = new Post(req.body);
             post.content = post.content.substring(0, post.content.length-1);
-            //console.log(post.content);
+
             post.save(function(err) {
                 if (err) {
+                    throw err;
                     res.redirect('/');
                 } else {
                     res.jsonp(post);
@@ -116,6 +117,7 @@ exports.show = function(req, res) {
 }
 
 exports.upToDate = function(req, res) {
+    console.log(req.body);
 
     Post.remove({_id: req.body.id}).exec(function(err, post) {
         if (err) {
@@ -159,11 +161,17 @@ exports.imgUpload = function (req, res) {
     form.parse(req, function(err, fields, files) {
         console.log('parsed image...');
 //        res.redirect('/posts/list');
-        console.log(sys.inspect({files: files}));
+//        console.log(sys.inspect({files: files}));
+        console.log(files.upload.path);
+
+//        res.render('posts/create', {
+//            imgLink: files.upload.path
+//        });
+
 //        fs.writeFile(files.upload.name, files.upload, 'utf8', function (err) {
 //            if (err) throw err;
 //            console.log('file saved');
-//            res.end();
+//            //res.end();
 //        });
     });
 }
