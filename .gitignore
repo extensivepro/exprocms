@@ -3,5 +3,9 @@
 .sass-cache/
 node_modules/
 public/lib
+<<<<<<< HEAD
 .idea
 public/upload
+=======
+.idea/
+>>>>>>> abccdccab35f38e4edfe0f8fc2390fed21d6678b

@@ -1,0 +1,16 @@
+<div ng-controller="ArticlesController" >
+    <div >
+        <div>
+            <div >
+                标题：<input type="text" ng-model="title"/><br/>
+                内容：<br/>
+                <textarea style="width:400px;height:400px" ng-model="articleText" ></textarea>
+                <button ng-click="previewArticle()">预览</button>
+            </div>
+        </div>
+        <div ng-include="currentView">
+
+        </div>
+
+    </div>
+</div>	

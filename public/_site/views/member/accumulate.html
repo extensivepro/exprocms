@@ -1,0 +1,38 @@
+<div class="row-fluid" ng-controller="PointLogsController" ng-init="init()">
+	<div class="box span12">
+		<div class="box-header">
+			<h2><i class="icon-user-md"></i><span class="break"></span>
+				<span ng-show='!entity._id'>积分累积</span>
+			</h2>
+			<div class="box-icon">
+				<!-- <a ng-click="cancelEdit()" class="btn-close"><i class="icon-remove"></i></a> -->
+			</div>
+		</div>
+		<div class="box-content">
+			<form class="form-horizontal" ng-model="entity" name="editForm">
+				<fieldset>
+					<div class="control-group">
+						<label class="control-label">姓名</label>
+						<div class="controls">
+							<select ng-model="entity.member" ng-options="m.user.name for m in members" ng-init="fetchMembers()" required ></select>
+							<i class="icon-asterisk" />
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">累积数量</label>
+						<div class="controls">
+							<div class="btn-group">
+								<input class="input-xlarge focused" type="text" ng-model="entity.point" required />
+								<i class="icon-asterisk" />
+							</div>
+						</div>
+					</div>
+					<div class="form-actions">
+						<button ng-disabled="editForm.$error.required" ng-click="create(entity)" class="btn btn-primary btn-large">创建</button>
+						<button ng-click="cancelEdit()" class="btn btn-large">取消</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>				

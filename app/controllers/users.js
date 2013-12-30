@@ -15,7 +15,7 @@ exports.authCallback = function(req, res, next) {
  * Show login form
  */
 exports.signin = function(req, res) {
-  res.send(200)
+  res.send(200);
 };
 
 /**
@@ -40,7 +40,9 @@ exports.signout = function(req, res) {
  * Session
  */
 exports.session = function(req, res) {
-    res.redirect('/');
+    console.log('进来啦');
+    res.redirect('#!/crm');
+
 };
 
 /**
@@ -97,4 +99,20 @@ exports.user = function(req, res, next, id) {
             req.profile = user;
             next();
         });
+};
+
+// 查询所有的用户信息
+exports.getAll = function(req, res) {
+    User.find().sort('name').exec(function(err, users) {
+        if (err) {
+            return res.status(500).send({message: 'load all Users failed!'});
+        }
+        if(users){
+            console.log("users:的内容是：" + users);
+            var statusCode = (users.length === 0) ? 204:200;
+            res.json(statusCode, {entities:users});
+        }else{
+            res.json(204,{total:0});
+        }
+    });
 };
