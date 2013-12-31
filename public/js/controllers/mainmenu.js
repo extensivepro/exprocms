@@ -1,4 +1,4 @@
-function MainMenuController($scope){
+function MainMenuController($scope, $routeParams, $location){
 	$scope.views = [ 
 	/*	  {name:"会员管理", icon:"icon-user", path:"views/member/index.html", submenus:[
 					{name:"储值账单", icon:"icon-list", path:"views/member/balanceIndex.html"}
@@ -9,10 +9,15 @@ function MainMenuController($scope){
 			, {name:"门店管理", icon:"icon-folder-close-alt", path:"views/shop/index.html", submenus: [
 					{name:"门店员工", icon:"icon-hdd", path:"views/staff/index.html"}
 			]}
-			, */{name:"系统用户", icon:"icon-user-md", path:"views/user/index.html"},
-			 {name:"文章编辑", icon:"icon-user-md", path:"views/article/index.html"}
+			, */
+        {name:"系统用户", icon:"icon-user-md", path:"views/user/index.html"},
+        {name:"网站管理", icon:"icon-user-md", path:""},
+	    {name:"文章管理", icon:"icon-user-md", path:"views/post/list.html"},
+        {name:"新建文章", icon:"icon-user-md", path:"views/post/create.html"},
+        {name:"修改文章", icon:"icon-user-md", path:"views/post/edit.html"}
+
 	]
-	$scope.currentView = $scope.views[0];
+	$scope.currentView = $scope.views[$location.search().view];
 	
 	$scope.selectView = function(view) {
 		$scope.currentView = view

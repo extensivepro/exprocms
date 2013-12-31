@@ -67,7 +67,7 @@ exports.save = function (req, res) {
             });
         } else {
             var post = new Post(req.body);
-            post.content = post.content.substring(0, post.content.length-1);
+            post.content = post.content.substring(0, post.content.length);
 
             post.save(function(err) {
                 if (err) {
@@ -75,7 +75,7 @@ exports.save = function (req, res) {
                     res.redirect('/');
                 } else {
                     res.jsonp(post);
-                    res.redirect('/posts/list');
+                    res.redirect('/#!/crm?view=2');
                 }
             });
         }
@@ -117,8 +117,6 @@ exports.show = function(req, res) {
 }
 
 exports.upToDate = function(req, res) {
-    console.log(req.body);
-
     Post.remove({_id: req.body.id}).exec(function(err, post) {
         if (err) {
             res.render('error', {
@@ -132,7 +130,7 @@ exports.upToDate = function(req, res) {
                     res.redirect('/');
                 } else {
                     res.jsonp(post);
-                    res.redirect('/posts/list');
+                    res.redirect('/#!/crm?view=2');
                 }
             });
         }
@@ -147,7 +145,7 @@ exports.delete = function(req, res) {
                 status: 500
             });
         } else {
-            res.redirect('/posts/list');
+            res.redirect('/#!/crm?view=2');
         }
     });
 }

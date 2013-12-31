@@ -1,4 +1,4 @@
-function ArticlesController($scope, Articles, Pagination, $timeout, $injector,$location){
+function ArticlesController($scope, $http, Articles, $route, Pagination, $timeout, $injector,$location){
     $scope.articleText = "";
     $scope.title = "";
 
@@ -31,4 +31,79 @@ function ArticlesController($scope, Articles, Pagination, $timeout, $injector,$l
 
         });
     }
+
+    $scope.post_rev_id="";
+
+    $scope.reload = function() {
+        $route.reload();
+        $scope.fetch_post();
+    }
+
+    $scope.reload_nake = function() {
+        $route.reload();
+    }
+
+    $scope.posts = [];
+    $scope.title_rev;
+    $scope.content_rev;
+    $scope.id_rev;
+
+    $scope.fill_value = function() {
+        var date, title, post_id, content;
+        var data_fetch;
+        $http({
+            url: '/posts/list',
+            method: 'POST'
+        }).success(function(data, status, headers, config) {
+                $scope.post_rev_id = $location.search().post_id;
+                data_fetch = data;
+                if (data_fetch.length == 0){
+
+                } else {
+                    for(var i = 0; i < data_fetch.length; i ++) {
+                        date = JSON.stringify(data[i].date).substring(1, 11) + ' '
+                            + (parseInt(JSON.stringify(data[i].date).substring(12, 14))+8).toString()
+                            + JSON.stringify(data[i].date).substring(14, 20);
+
+                        post_id = data[i]._id;
+                        title = data[i].title;
+                        content = data[i].content;
+                        if ($scope.post_rev_id == post_id) {
+                            $scope.title_rev = title;
+                            $scope.content_rev = content;
+                            $scope.id_rev = post_id;
+                        }
+                    }
+                }
+            }).error(function(data, status, headers, config) {
+                $scope.status = status;
+            });
+    }
+
+    var fetch_data = function(){
+        var date, title, post_id, content;
+        var data_fetch;
+        $http({
+            url: '/posts/list',
+            method: 'POST'
+        }).success(function(data, status, headers, config) {
+                data_fetch = data;
+                if (data_fetch.length == 0){
+
+                } else {
+                    for(var i = 0; i < data_fetch.length; i ++) {
+                        date = JSON.stringify(data[i].date).substring(1, 11) + ' '
+                            + (parseInt(JSON.stringify(data[i].date).substring(12, 14))+8).toString()
+                            + JSON.stringify(data[i].date).substring(14, 20);
+                        post_id = data[i]._id;
+                        title = data[i].title;
+                        content = data[i].content;
+                        $scope.posts.push({"title":title, "date":date, "id":post_id});
+                    }
+                }
+        }).error(function(data, status, headers, config) {
+                $scope.status = status;
+        });
+    }
+    fetch_data();
 }
