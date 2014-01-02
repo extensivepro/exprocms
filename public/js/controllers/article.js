@@ -1,4 +1,4 @@
-function ArticlesController($scope, $http, Articles, $route, Pagination, $timeout, $injector,$location){
+function ArticlesController($scope, $upload, $http, Articles, $route, Pagination, $timeout, $injector,$location){
     $scope.articleText = "";
     $scope.title = "";
 
@@ -47,6 +47,28 @@ function ArticlesController($scope, $http, Articles, $route, Pagination, $timeou
     $scope.title_rev;
     $scope.content_rev;
     $scope.id_rev;
+
+    $scope.myModelObj;
+    $scope.onFileSelect = function($files) {
+
+        for (var i=0; i<$files.length;i++) {
+            var file = $files[i];
+
+            $scope.upload = $upload.upload({
+                url: '/upload',
+                method: 'POST',
+                data: {myObj: $scope.myModelObj},
+                file: file
+            }).progress(function(evt) {
+                    console.log('percent: ' + parseInt(100.0*evt.loaded/evt.total));
+                }).success(function (data, status, header, config){
+//                    alert(JSON.stringify(data));
+//                    console.log(JSON.stringify(data));
+                    $scope.myModelObj = 'http://localhost:3000'+JSON.stringify(data).substring(9,JSON.stringify(data).length-1);
+
+                });
+        }
+    }
 
     $scope.fill_value = function() {
         var date, title, post_id, content;

@@ -41,6 +41,13 @@
                     <button style="margin-left: 20px" class="btn" type="submit" formaction="/posts/delete" formmethod="post" >删除</button>
                 </div>
             </form>
+            <div style="margin-left: 130px">
+                <input accept="image/*" type="file" name="file" style="visibility:hidden;" id="pdffile" ng-file-select="onFileSelect($files)" /><br/>
+                <div class="input-append">
+                    <input ng-model="myModelObj" type="text" name="subfile" id="subfile" class="input-xlarge">
+                    <a class="btn" onclick="$('#pdffile').click();">上传图片</a>
+                </div>
+            </div>
         </div>
         <div ng-include="currentView">
         </div>
