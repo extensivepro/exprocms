@@ -152,6 +152,7 @@ exports.delete = function(req, res) {
 
 exports.imgUpload = function (req, res) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log('uploading image...');
     var form  = new formidable.IncomingForm();
     form.uploadDir = './public/upload';
@@ -174,6 +175,8 @@ exports.imgUpload = function (req, res) {
 //        });
     });
 =======
+=======
+>>>>>>> afbda348788c2042af00d4acdf1fe1a6acd99405
     console.log("进入upload");
     for (var i in req.files) {
         if (req.files[i].size == 0){
@@ -188,5 +191,8 @@ exports.imgUpload = function (req, res) {
         }
     }
     return res.send(target_path);
+<<<<<<< HEAD
 >>>>>>> 8af4200... 加入图片上传功能
+=======
+>>>>>>> afbda348788c2042af00d4acdf1fe1a6acd99405
 }

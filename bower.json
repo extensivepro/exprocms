@@ -8,6 +8,7 @@
         "angular-route": "angular/bower-angular-route#1.2.0-rc.2",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         "angular-sanitize":"angular/bower-angular-sanitize#1.2.0-rc.2",
         "ng-file-upload":"*",
@@ -16,6 +17,10 @@
         "angular-sanitize":"angular/bower-angular-sanitize#1.2.0-rc.2",
 
 >>>>>>> b69176f... post management transplanted to new theme with functionalities:
+=======
+        "angular-sanitize":"angular/bower-angular-sanitize#1.2.0-rc.2",
+        "ng-file-upload":"*",
+>>>>>>> afbda348788c2042af00d4acdf1fe1a6acd99405
         "angular-bootstrap": "~0.5.0",
         "bootstrap": "2.3.2",
         "modernizr": "*",

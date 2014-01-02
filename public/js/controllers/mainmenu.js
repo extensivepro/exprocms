@@ -12,15 +12,21 @@ function MainMenuController($scope, $routeParams, $location){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			, {name:"系统用户", icon:"icon-user-md", path:"views/user/index.html"}
 =======
 			, */
         {name:"系统用户", icon:"icon-user-md", path:"views/user/index.html"},
 <<<<<<< HEAD
+=======
+			, */
+        {name:"系统用户", icon:"icon-user-md", path:"views/user/index.html"},
+>>>>>>> afbda348788c2042af00d4acdf1fe1a6acd99405
         {name:"网站管理", icon:"icon-hdd", path:"views/site_manage/site.html"},
 	    {name:"文章管理", icon:"icon-list", path:"views/post/list.html"},
         {name:"新建文章", icon:"icon-plus", path:"views/post/create.html"},
         {name:"修改文章", icon:"icon-money", path:"views/post/edit.html"}
+<<<<<<< HEAD
 =======
         {name:"网站管理", icon:"icon-user-md", path:"views/site_manage/site.html"},
 	    {name:"文章管理", icon:"icon-user-md", path:"views/post/list.html"},
@@ -52,6 +58,11 @@ function MainMenuController($scope, $routeParams, $location){
 	]
 	$scope.currentView = $scope.views[$location.search().view];
 >>>>>>> b69176f... post management transplanted to new theme with functionalities:
+=======
+
+	]
+	$scope.currentView = $scope.views[$location.search().view | 0];
+>>>>>>> afbda348788c2042af00d4acdf1fe1a6acd99405
 	
 	$scope.selectView = function(view) {
 		$scope.currentView = view

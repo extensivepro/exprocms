@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap']);
 =======
 window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap', 'mdFilter', 'ngSanitize', 'angularFileUpload']);
@@ -7,6 +8,9 @@ window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','u
 =======
 window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap', 'mdFilter', 'ngSanitize']);
 >>>>>>> b69176f... post management transplanted to new theme with functionalities:
+=======
+window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap', 'mdFilter', 'ngSanitize', 'angularFileUpload']);
+>>>>>>> afbda348788c2042af00d4acdf1fe1a6acd99405
 
 /*
 * 
