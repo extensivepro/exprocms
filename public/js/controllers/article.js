@@ -64,7 +64,7 @@ function ArticlesController($scope, $upload, $http, Articles, $route, Pagination
                 }).success(function (data, status, header, config){
 //                    alert(JSON.stringify(data));
 //                    console.log(JSON.stringify(data));
-                    $scope.myModelObj = 'http://localhost:3000'+JSON.stringify(data).substring(9,JSON.stringify(data).length-1);
+                    $scope.myModelObj = '![Invalid Image URL Link](http://localhost:3000'+JSON.stringify(data).substring(9,JSON.stringify(data).length-1)+")";
 
                 });
         }
