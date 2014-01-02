@@ -12,7 +12,7 @@ module.exports = function(app, passport, auth) {
     app.get('/signout', users.signout);
 
     //setting up site information
-    app.get('/site_manage', site.show);
+    app.get('/site_manage', site.all);
     app.post('/site_manage/update', site.post);
 
     //setting up posts api

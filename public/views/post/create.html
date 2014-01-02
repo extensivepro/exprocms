@@ -2,29 +2,42 @@
     <div >
         <div>
             <form style="margin-left: -50px" class='form-horizontal' action='/posts/create' method='post' >
-                <div class='control-label'>
-                    <div class='control-label' >
-                        <label for='title'>Title</label>
-                    </div>
-                    <div class='controls' >
-                        <input id='title' type='text' name='title' required="required" />
-                    </div>
-                    <br>
-                    <div class='control-label' >
-                        <label for='content'>Content</label>
-                    </div>
-                    <div class='controls' >
-                        <textarea ng-model="message" id='content' type='text' name='content' required="required" style="padding:5px; width:400px; height:300px" />
-                    </div>
-                    <div style="margin-left: 180px;margin-top: 20px" >
-                        <input class='btn btn-primary' type='submit' />
+                <div class='control-label' >
+                    <label for='title'>Title</label>
+                </div>
+                <div class='controls' >
+                    <input id='title' type='text' name='title' required="required" />
+                </div>
+                <br>
+                <div class='controls row'>
+                    <div class="span12">
+                        <p>
+                        <div style="text-align: center;" data-toggle="buttons-radio" ng-init="textboxClass='span6';previewClass='span6'" class="btn-group">
+                            <input type="button" ng-click="textboxClass='span12';previewClass='hide'" class="btn btn-mini" value="编辑"><i class="icon-chevron-left"></i></input>
+                            <input type="button" ng-click="textboxClass='span6';previewClass='span6'" class="btn btn-mini active" value="双页"><i class="icon-pause"></i></input>
+                            <input type="button" ng-click="textboxClass='hide';previewClass='span12'" class="btn btn-mini" value="预览"><i class="icon-chevron-right"></i></input>
+                        </div>
+                        </p>
                     </div>
                 </div>
+                <div class='control-label' >
+                    <label for='content'>Content</label>
+                </div>
+                <div class="controls row">
+                    <div ng-class="textboxClass">
+                        <textarea ng-style="textboxStyle" ng-model="message" id='content' type='text' name='content' required="required" style="padding:5px; margin-left: 0px; margin-left: 0px; padding-right: 0px; height: 400px"/>
+                    </div>
+                    <div ng-class="previewClass">
+                        <div ng-style="previewStyle" ng-bind-html="message | markdown" class="markdown-preview" style="margin-left: 0px; padding-left: 0px; margin-right: 0px"></div>
+                    </div>
+                    <div style="clear:both"></div>
+
+                </div>
+                <div style="margin-left: 180px;margin-top: 20px" >
+                    <input class='btn btn-primary' type='submit' />
+                </div>
             </form>
-
-            <div style="margin-left: 600px" ng-bind-html="message | markdown" style="width:400px; height:300px"></div>
         </div>
-
         <div ng-include="currentView">
         </div>
     </div>
