@@ -12,12 +12,12 @@ block content
 
     form.signin.form-horizontal(action="/posts/create", method="post")
         .control-group
-            label.control-label(for='address') Title
+            label.control-label(for='title') Title
             .controls
                 input#title(type='text', name="title",required='required', value=postTitle)
 
         .control-group
-            label.control-label(for='address') Content
+            label.control-label(for='content') Content
             .controls
                 #epiceditor
         .control-group(style='display:none')
@@ -25,17 +25,9 @@ block content
                 textarea#epictextarea(name='content', value=postContent)
         .control-group(style='display:none')
             .controls
-                input#contentRec(type='text', name='content')
-        .control-group
-            .controls
-                input(type = 'file', name='imgUpload', accept = 'image/*')
-                button.btn(formenctype='multipart/form-data', formaction='/imgUpload', formmethod='post', type='submit') Upload
+                input#contentRec(type='text')
         .form-actions
-            input.btn.btn-primary(type='submit', onClick='exportF();') Submit
+            input.btn.btn-primary(type='submit') Submit
             &nbsp;
             | or&nbsp;
             a.show-login(href="/posts/list") Back
-
-    form(enctype='multipart/form-data', action='/upload', method='post')
-        input(type = 'file', name='upload')
-        input.btn(type='submit')

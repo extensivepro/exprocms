@@ -19,6 +19,16 @@ exports.site = function(req, res, next, id) {
     });
 };
 
+exports.all = function(req, res) {
+    Site.findOne().exec(function(err, site) {
+        if (err) {
+
+        } else {
+            res.jsonp(site);
+        }
+    });
+};
+
 exports.show = function (req, res){
     var owner, address, email, telephone;
     Site.findOne().exec(function(err, site) {
@@ -66,7 +76,7 @@ exports.post = function(req, res){
                     if (err) {
 
                     } else {
-                        res.jsonp(site);
+                        res.redirect('/#!/crm?view=1');
                     }
                 });
             } else {
@@ -77,12 +87,11 @@ exports.post = function(req, res){
                         });
                     } else {
                         var site = new Site(req.body);
-                        console.log(site);
                         site.save(function(err) {
                             if (err) {
 
                             } else {
-                                res.jsonp(site);
+                                res.redirect('/#!/crm?view=1');
                             }
                         });
                     }
