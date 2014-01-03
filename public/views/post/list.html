@@ -1,0 +1,17 @@
+<div ng-controller="ArticlesController" data-ng-init='fetch_data()'>
+    <div>
+        <ul style='list-style:none'>
+
+            <li ng-repeat="post in posts" >
+                <span>{{post.date}}</span>
+                <h1><a ng-href='/#!/crm?view=4&post_id={{post.id}}' ng-click="reload()">{{post.title}}</a></h1>
+            </li>
+            <hr>
+        </ul>
+        <h1 data-ng-hide='!posts || posts.length'>No posts yet. <br> <a href='/#!/crm?view=3' ng-click="reload_nake()">CREATE one?</a></h1>
+
+        <div ng-include="currentView">
+        </div>
+
+    </div>
+</div>
