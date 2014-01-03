@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 function ArticlesController($scope, $upload, $http, Articles, $route, Pagination, $timeout, $injector,$location){
-=======
-function ArticlesController($scope, Articles, Pagination, $timeout, $injector,$location){
->>>>>>> 0a7408f... add user
-=======
-function ArticlesController($scope, $http, Articles, $route, Pagination, $timeout, $injector,$location){
->>>>>>> b69176f... post management transplanted to new theme with functionalities:
     $scope.articleText = "";
     $scope.title = "";
 
@@ -39,10 +31,6 @@ function ArticlesController($scope, $http, Articles, $route, Pagination, $timeou
 
         });
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b69176f... post management transplanted to new theme with functionalities:
 
     $scope.post_rev_id="";
 
@@ -60,7 +48,7 @@ function ArticlesController($scope, $http, Articles, $route, Pagination, $timeou
     $scope.content_rev;
     $scope.id_rev;
 
-<<<<<<< HEAD
+
     $scope.myModelObj;
     $scope.onFileSelect = function($files) {
 
@@ -77,18 +65,11 @@ function ArticlesController($scope, $http, Articles, $route, Pagination, $timeou
                 }).success(function (data, status, header, config){
 //                    alert(JSON.stringify(data));
 //                    console.log(JSON.stringify(data));
-<<<<<<< HEAD
                     $scope.myModelObj = '![Invalid Image URL Link](http://localhost:3000'+JSON.stringify(data).substring(9,JSON.stringify(data).length-1)+")";
-=======
-                    $scope.myModelObj = 'http://localhost:3000'+JSON.stringify(data).substring(9,JSON.stringify(data).length-1);
->>>>>>> 8af4200... 加入图片上传功能
 
                 });
         }
     }
-
-=======
->>>>>>> b69176f... post management transplanted to new theme with functionalities:
     $scope.fill_value = function() {
         var date, title, post_id, content;
         var data_fetch;
@@ -147,9 +128,4 @@ function ArticlesController($scope, $http, Articles, $route, Pagination, $timeou
         });
     }
     fetch_data();
-<<<<<<< HEAD
-=======
->>>>>>> 0a7408f... add user
-=======
->>>>>>> b69176f... post management transplanted to new theme with functionalities:
 }

@@ -151,29 +151,7 @@ exports.delete = function(req, res) {
 }
 
 exports.imgUpload = function (req, res) {
-<<<<<<< HEAD
-    console.log('uploading image...');
-    var form  = new formidable.IncomingForm();
-    form.uploadDir = './public/upload';
-    form.keepExtensions = true;
-    console.log('parsing image...');
-    form.parse(req, function(err, fields, files) {
-        console.log('parsed image...');
-//        res.redirect('/posts/list');
-//        console.log(sys.inspect({files: files}));
-        console.log(files.upload.path);
 
-//        res.render('posts/create', {
-//            imgLink: files.upload.path
-//        });
-
-//        fs.writeFile(files.upload.name, files.upload, 'utf8', function (err) {
-//            if (err) throw err;
-//            console.log('file saved');
-//            //res.end();
-//        });
-    });
-=======
     console.log("进入upload");
     for (var i in req.files) {
         if (req.files[i].size == 0){
@@ -188,5 +166,4 @@ exports.imgUpload = function (req, res) {
         }
     }
     return res.send(target_path);
->>>>>>> 8af4200... 加入图片上传功能
 }

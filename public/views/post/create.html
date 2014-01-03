@@ -2,7 +2,6 @@
     <div >
         <div>
             <form style="margin-left: -50px" class='form-horizontal' action='/posts/create' method='post' >
-<<<<<<< HEAD
                 <div class='control-label' >
                     <label for='title'>Title</label>
                 </div>
@@ -46,31 +45,6 @@
                 </div>
             </div>
         </div>
-=======
-                <div class='control-label'>
-                    <div class='control-label' >
-                        <label for='title'>Title</label>
-                    </div>
-                    <div class='controls' >
-                        <input id='title' type='text' name='title' required="required" />
-                    </div>
-                    <br>
-                    <div class='control-label' >
-                        <label for='content'>Content</label>
-                    </div>
-                    <div class='controls' >
-                        <textarea ng-model="message" id='content' type='text' name='content' required="required" style="padding:5px; width:400px; height:300px" />
-                    </div>
-                    <div style="margin-left: 180px;margin-top: 20px" >
-                        <input class='btn btn-primary' type='submit' />
-                    </div>
-                </div>
-            </form>
-
-            <div style="margin-left: 600px" ng-bind-html="message | markdown" style="width:400px; height:300px"></div>
-        </div>
-
->>>>>>> b69176f... post management transplanted to new theme with functionalities:
         <div ng-include="currentView">
         </div>
     </div>

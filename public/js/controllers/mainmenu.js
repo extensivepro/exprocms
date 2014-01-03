@@ -16,42 +16,13 @@ function MainMenuController($scope, $routeParams, $location){
 =======
 			, */
         {name:"系统用户", icon:"icon-user-md", path:"views/user/index.html"},
-<<<<<<< HEAD
         {name:"网站管理", icon:"icon-hdd", path:"views/site_manage/site.html"},
 	    {name:"文章管理", icon:"icon-list", path:"views/post/list.html"},
         {name:"新建文章", icon:"icon-plus", path:"views/post/create.html"},
         {name:"修改文章", icon:"icon-money", path:"views/post/edit.html"}
-=======
-        {name:"网站管理", icon:"icon-user-md", path:"views/site_manage/site.html"},
-	    {name:"文章管理", icon:"icon-user-md", path:"views/post/list.html"},
-        {name:"新建文章", icon:"icon-user-md", path:"views/post/create.html"},
-        {name:"修改文章", icon:"icon-user-md", path:"views/post/edit.html"}
->>>>>>> b95a2b7... 添加Markdown及时html渲染，添加网站管理页面，完善post增删改查
-
->>>>>>> afbda34... icon change
 	]
-<<<<<<< HEAD
-	$scope.currentView = $scope.views[2]
-=======
+
 	$scope.currentView = $scope.views[$location.search().view | 0];
->>>>>>> b95a2b7... 添加Markdown及时html渲染，添加网站管理页面，完善post增删改查
-=======
-			, */{name:"系统用户", icon:"icon-user-md", path:"views/user/index.html"},
-			 {name:"文章编辑", icon:"icon-user-md", path:"views/article/index.html"}
-	]
-	$scope.currentView = $scope.views[0];
->>>>>>> 0a7408f... add user
-=======
-			, */
-        {name:"系统用户", icon:"icon-user-md", path:"views/user/index.html"},
-        {name:"网站管理", icon:"icon-user-md", path:""},
-	    {name:"文章管理", icon:"icon-user-md", path:"views/post/list.html"},
-        {name:"新建文章", icon:"icon-user-md", path:"views/post/create.html"},
-        {name:"修改文章", icon:"icon-user-md", path:"views/post/edit.html"}
-
-	]
-	$scope.currentView = $scope.views[$location.search().view];
->>>>>>> b69176f... post management transplanted to new theme with functionalities:
 	
 	$scope.selectView = function(view) {
 		$scope.currentView = view

@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap']);
-=======
 window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap', 'mdFilter', 'ngSanitize', 'angularFileUpload']);
->>>>>>> 8af4200... 加入图片上传功能
-=======
-window.app = angular.module('exprocms', ['ngCookies', 'ngResource', 'ngRoute','ui.bootstrap', 'mdFilter', 'ngSanitize']);
->>>>>>> b69176f... post management transplanted to new theme with functionalities:
 
 /*
 * 

@@ -1,7 +1,6 @@
 <div ng-controller="ArticlesController">
     <div >
         <div>
-<<<<<<< HEAD
             <form style="margin-left: -50px" class='form-horizontal' action='/posts/edit' method='post' data-ng-init="fill_value()">
                 <div class='control-label' >
                     <label for='title'>Title</label>
@@ -49,33 +48,6 @@
                     <a class="btn" onclick="$('#pdffile').click();">上传图片</a>
                 </div>
             </div>
-=======
-            <form class='form-horizontal' action='/posts/edit' method='post' data-ng-init="fill_value()">
-                <div class='control-label'>
-                    <div class='control-label' >
-                        <label for='title'>Title</label>
-                    </div>
-                    <div class='controls' >
-                        <input id='title' type='text' name='title' required="required" ng-model="title_rev" />
-                    </div>
-                    <br>
-                    <div class='control-label' >
-                        <label for='content'>Content</label>
-                    </div>
-                    <div class='controls' >
-                        <textarea id='content' type='text' name='content' required="required" style="padding: 5px; width:400px; height:300px" ng-model="content_rev" />
-                    </div>
-                    <div style="display: none">
-                        <input id="contentRec" type="text" name="id" ng-model="id_rev" >
-                    </div>
-                    <div style="margin-top: 20px; margin-left: 180px">
-                        <input class='btn btn-primary' type='submit' />
-                        <button class="btn" type="submit" formaction="/posts/delete" formmethod="post" >删除</button>
-                        <button class="btn" type="submit" formaction="/posts/delete" formmethod="post" >预览</button>
-                    </div>
-                </div>
-            </form>
->>>>>>> b69176f... post management transplanted to new theme with functionalities:
         </div>
         <div ng-include="currentView">
         </div>
