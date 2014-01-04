@@ -1,7 +1,0 @@
-exprocms
-========
-
-Content Management System base on NodeJS
-
-## Intro
-exprocms is small and light CMS. Published static content (such as HTML, javascript, css, etc) which splite from system. Base on [MEAN](https://github.com/linnovate/mean) Boilerplate to develop.

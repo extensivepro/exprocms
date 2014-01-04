@@ -1,0 +1,1 @@
+cd /Users/expro/workspace/exprocms-1/public/article/ && jekyll serve -w

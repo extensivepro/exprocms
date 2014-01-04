@@ -11,9 +11,21 @@ window.app.run(function($rootScope,localStorage, $location, $timeout){
   $rootScope.location = $location;
   $rootScope.$watch('location.path()', function( path ) {
     //.. path to logout?
-    if (path == '/signout') {  
+//    console.log("进入了路径监控");
+//    console.log("path:" + path);
+    if (path == '/signout') {
       $rootScope.setUserStatus('',false,'',false);
       $location.path('/');
+    }
+    var flag = true;
+    if (path == '/signup') {
+      flag = false;
+        $location.path('/signup');
+    }
+
+    if(!$rootScope.Signed && flag){
+//      console.log('我进入了signin');
+      $location.path('/signin');
     }
   });
 

@@ -42,9 +42,8 @@ module.exports = function(app, passport, db) {
         app.use(express.cookieParser());
 
         //bodyParser should be above methodOverride
-//        app.use(express.bodyParser());
+        app.use(express.bodyParser({ keepExtensions: true, uploadDir: './public/images' }));
         app.use(express.methodOverride());
-        app.use(express.bodyParser());
 
         app.use(express.cookieParser());
 
@@ -79,7 +78,7 @@ module.exports = function(app, passport, db) {
             console.error(err.stack);
 
             //Error page
-            res.status(500).render('500', {
+           res.status(500).render('500', {
                 error: err.stack
             });
         });
