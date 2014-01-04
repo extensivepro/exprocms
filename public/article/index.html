@@ -3,11 +3,25 @@ layout: default
 title: Your New Jekyll Site
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<div ng-controller="ArticlesController" style="position:absolute;height:1000px;width:1300px;" >
+    <div style="float:left; width:300px; height:800px; overflow:auto; ">
+        <h1>文章列表</h1>
+        <ul class="posts">
+            {% for post in site.posts %}
+            <li class="li">
+                <button class="btn-danger icon-trash" title="删除文章" ng-click="remove('{{ post.url }}','{{post.title }}')" >
+                </button>
+                &nbsp;&nbsp;
+                <button class="btn-info icon-edit" title="修改文章" ng-click="change('{{ post.url }}','{{post.title }}')" >
+                </button>
+                &nbsp;&nbsp;
+                <span>{{ post.date | date_to_string }}</span>
+                &raquo;
+                <a ng-click="selectArticle('{{ post.url }}')" ng-mouseover="selectArticle('{{ post.url }}')">{{post.title }}</a></li>
+
+            {% endfor %}
+        </ul>
+    </div>
+    <div ng-include="currentView" style=" overflow-y:auto; overflow-x:auto; width:1000px; height:1000px;">
+    </div>
 </div>

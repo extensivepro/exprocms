@@ -22,9 +22,36 @@ exports.signin = function(req, res) {
  * Show sign up form
  */
 exports.signup = function(req, res) {
-    res.render('users/signup', {
-        title: 'Sign up',
-        user: new User()
+    var user = new User(req.body);
+    console.log("user是：" + user);
+    user.save(function(err) {
+        console.log("code:" + err);
+        if (err) {
+            console.log("错了："+ err);
+            switch(err.code){
+                case 11000:
+                case 11001:
+
+                    var re1 = /email/i;
+                    if (re1.test(err)) {
+
+                        console.log("进入402");
+                        return res.send({code:402, message:'邮箱已被占用'});
+                    }
+                    var re2 = /username/i;
+                    if (re2.test(err)) {
+
+                        return res.send({code:403, message:'用户名已被占用'});
+                    }
+                    break;
+                default:
+
+                    return res.send({code:400, message:'请正确填写所有的字段'});
+            }
+
+
+        }
+        return res.redirect('/');
     });
 };
 

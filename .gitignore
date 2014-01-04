@@ -6,3 +6,4 @@ public/lib
 .idea
 public/upload
 
+public/article/_posts/*
