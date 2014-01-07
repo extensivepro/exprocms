@@ -1,15 +1,15 @@
-<div ng-controller="ArticlesController2" style="margin: 0 auto;">
-    <h1 style="TEXT-ALIGN: center;">文章编辑</h1>
+<div ng-controller="ArticlesController2" ng-init="initForC()" style="margin: 0 auto;">
+    <h1 style="TEXT-ALIGN: center;">文章修改</h1>
 
     <div style="margin: 0, auto">
-        <span>标题：</span><input type="text" id="title" ng-model="title" required/><br/>
+        <span>标题：</span><input id="title" type="text" ng-model="titleForC" readonly/><br/>
         <span>内容：</span><br/>
 
-        <div id="epiceditor" ng-init="showEpic()" style="height:650px;margin: 0 auto;">
+        <div id="epiceditor"  style="height:650px;margin: 0 auto;">
         </div>
         <div style="margin: 0, auto">
         <iframe src="" name="attach" style="display:none"></iframe>
-
+        <hr/>
         <form method='post'  action='/articles/upload' enctype='multipart/form-data' target="attach">
             <fieldset >
                 <legend>文件上传区:</legend>
@@ -30,12 +30,10 @@
                     <tr><td><input btn btn-primary type="submit" name='sub' value="提交上传文件"/></td></tr>
                 </table>
             </fieldset>
-
-
         </form>
         <hr/>
-        <button class="btn btn-primary btn-large" style="margin: 0 auto" ng-click="saveArticle()">保存</button>
-        <button onclick="location.reload();" class="btn btn-large" style="margin: 0 auto">取消</button>
+        <button class="btn btn-primary btn-large" ng-click="saveArticleForChange()">保存</button>
+        <button ng-click="backList()" class="btn btn-large">取消</button>
         </div>
     </div>
 

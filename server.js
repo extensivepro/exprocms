@@ -5,6 +5,7 @@ var express = require('express'),
     fs = require('fs'),
     passport = require('passport'),
     logger = require('mean-logger');
+var exec = require('child_process').exec;
 
 /**
  * Main application entry file.
@@ -20,6 +21,25 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
 
 //Bootstrap db connection
 var db = mongoose.connect(config.db);
+
+
+// 启动jekyll 服务
+var path_jekyll = __dirname;
+console.log("path_jekyll:" + path_jekyll);
+exec('cd ' + path_jekyll + '/public/article/ && jekyll serve -w',
+    function (error, stdout, stderr) {
+        console.log("执行了shell");
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+    }
+);
+
+
+
+
 
 //Bootstrap models
 var models_path = __dirname + '/app/models';
@@ -59,3 +79,4 @@ logger.init(app, passport, mongoose);
 
 //expose app
 exports = module.exports = app;
+

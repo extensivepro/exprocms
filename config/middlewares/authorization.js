@@ -3,7 +3,7 @@
  */
 exports.requiresLogin = function(req, res, next) {
     if (!req.isAuthenticated()) {
-        return res.send(401, 'User is not authorized');
+        return res.send(401);
     }
     next();
 };
@@ -16,7 +16,7 @@ exports.user = {
         console.log('hasAuthorization-tsq:',req.user,"+",req.profile)
         if (!req.user) {
             console.log("User Auth:",req.user);
-            return res.redirect('#!/signin');
+            return res.send(401)
         }
         next();
     }
