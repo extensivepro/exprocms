@@ -11,7 +11,6 @@ module.exports = function(app, passport, auth) {
     app.get('/signup', users.signup);
     app.get('/signout', users.signout);
 
-    //setting up site information
     app.get('/site_manage', site.all);
     app.post('/site_manage/update', site.post);
 
@@ -30,10 +29,11 @@ module.exports = function(app, passport, auth) {
 
     app.post('/upload', posts.imgUpload);
 
-    //Setting up the users api
+
     app.post('/users', users.create);
 
     app.post('/users/session', passport.authenticate('local'), users.session);
+    app.post('/users/signup',  users.signup);
 
 
     app.get('/users/get_all', auth.user.hasAuthorization,users.getAll);
@@ -45,22 +45,16 @@ module.exports = function(app, passport, auth) {
     app.param('userId', users.user);
 
     //Article Routes
-
     app.get('/articles', articles.all);
-    app.post('/articles/preview', articles.preview);//生成markdown文档
+    app.post('/articles/saveArticle', articles.saveArticle);//生成markdown文档
+    app.post('/articles/remove', articles.remove);
+    app.post('/articles/upload', articles.upload);
+    app.post('/articles/findByAddress', articles.findByAddress);
     app.post('/articles', auth.requiresLogin, articles.create);
     app.get('/articles/:articleId', articles.show);
     app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update);
     app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy);
-//    app.get('/display', articles.display);
-    //Finish with setting up the articleId param
-    app.param('articleId', articles.article);
-/*    function checkLogin(req, res, next) {
 
-        if (!req.user) {
-            console.log('hello');
-            res.redirect('#!/signin');
-        }
-        next();
-    }*/
+    app.param('articleId', articles.article);
+
 };

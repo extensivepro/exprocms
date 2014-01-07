@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="row-fluid">
+            <div class="page-header">
+                <h1 class="text-center text-primary">Extensivepro CMS - 泛盈内容管理系统</h1>
+            </div>
+            <div class="login-box">
+                <h2>注册：</h2>
+                <form name="myForm" class="form-horizontal" ng-model="signupUser">
+
+
+                    <label form="username">用户名：</label> <input name="username" class="input-large span12" style="color: #000000!important;" ng-model="user.username"
+                           type="text" placeholder="" required/>
+                    密码：<input class="input-large span12" style="color: #000000!important;" ng-model="user.password"
+                           type="password" placeholder="" required/>
+                    真实姓名：<input class="input-large span12" style="color: #000000!important;" ng-model="user.name" type="text"
+                           placeholder="" required/>
+
+                    手机号码：<input class="input-large span12" style="color: #000000!important;" ng-model="user.phone"  ng-pattern="/^[1][3,5,6,8,9]\d{8}\d$/"
+                           type="text" placeholder="" required/>
+                    身份证：<input class="input-large span12" style="color: #000000!important;" ng-model="user.idcard" ng-pattern="/(^\d{15}$)|(^\d{17}(\d|X)$)/"
+                               type="text" placeholder="" required/>
+                    <div>
+                    性别：<input  style="color: #000000!important;" ng-model="user.male" type="radio" value="男" >男</input>
+                         <input  style="color: #000000!important;" ng-model="user.male" type="radio" value="女" >女</input>
+                    </div>
+                    邮箱：<input class="input-large span12" style="color: #000000!important;" ng-model="user.email"
+                           name="email" type="email" placeholder="" required />
+                    <!--年龄：<input class="input-large span12" style="color: #000000!important;" ng-model="user.age" ng-maxlength="3" ng-minlength="1" type="number" placeholder="" required/>-->
+                    <!--<span ng-show="myForm.email.$error.email" class="help-inline"> Not a EMail</span>-->
+
+                    <div class="clearfix"></div>
+
+                    <div class="clearfix"></div>
+
+                    <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-primary span12" ng-click="signup()"
+                            >提交
+                    </button>
+
+                </form>
+                <div class="alert alert-block alert-danger fade in" style="display: none">
+                    <button type="button" class="close" onclick="$('.alert').hide()">×</button>
+                    <h4 class="alert-heading">警告！</h4>
+
+                    <p class="ng-binding">{{errorSignupDetail}}</p>
+                </div>
+                <hr>
+                <p class="text-center"> 泛盈科技 @2013</p>
+                <!-- <h3>Forgot Password?</h3>
+                <p>
+                    No problem, <a href="login.html#">click here</a> to get a new password.
+                </p>	 -->
+            </div>
+        </div>
+        <!--/row-->
+    </div>
+    <!--/fluid-row-->
+</div><!--/.fluid-container-->

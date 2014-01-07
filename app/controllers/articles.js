@@ -89,8 +89,69 @@ exports.all = function(req, res) {
     });
 };
 
+exports.upload = function(req, res) {
+    console.log("进入upload");
+    for (var i in req.files) {
+        if (req.files[i].size == 0){
+            // 使用同步方式删除一个文件
+            fs.unlinkSync(req.files[i].path);
+            console.log('Successfully removed an empty file!');
+        } else {
+            var target_path = './public/images/' + req.files[i].name;
+            // 使用同步方式重命名一个文件
+            fs.renameSync(req.files[i].path, target_path);
+            console.log('Successfully renamed a file!');
+        }
+    }
+    return res.send({"200":"OK"});
+};
+//删除操作
+exports.remove = function(req, res) {
+    var url = req.body.url;
+    console.log("url:" + req.body.url + " name:" + req.body.name);// /2013/12/31/Hello.html
+    String.prototype.replaceAll = stringReplaceAll;
+    function stringReplaceAll(t1, t2) {
+        var reg = new RegExp(t1, "g");
+        return this.replace(reg, t2);
+    }
+    var url1 = url.replaceAll('/', '-').replace('html', 'markdown');
+    var url2 = url1.substring(1, url1.length);
+    console.log("url1:" + url1);
+    console.log("url2:" + url2);
+    var path1 = "public/article/_posts/" + url2;
+    var path2 = "public/article/_site/" + url;
+    var path1_D = __dirname + "/../../" + path1;
+    var path2_D = __dirname + "/../../" + path2;
+    fs.unlinkSync(path1_D, function(err) {
+        console.log("err1:" + err);
+    });
+    fs.unlinkSync(path2_D, function(err) {
+        console.log("err2:" + err);
+    });
+    res.send({code:"200"});
+
+};
+exports.findByAddress = function(req, res) {
+    console.log("into findByAddress");
+    var fileName ='./public/article/_posts/' +  req.body.fileName;
+//    var data=fs.readFileSync(fileName,"utf-8");//同步读
+
+    fs.readFile(fileName,'utf-8',function(err,data){
+        if(err){
+            console.log("error");
+            res.send({"500":"读取文件失败"});
+            return
+        }else{
+            console.log('==============\n' + data + '==============');
+            return res.send({"result":data});
+        }
+    });
+
+
+};
+
 // 生成markdown文档
-exports.preview = function(req, res) {
+exports.saveArticle = function(req, res) {
     console.log('进入生成markdown文档界面');
     console.log(req.body);
     var text = req.body.text;

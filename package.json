@@ -39,7 +39,8 @@
         "grunt": "latest",
         "grunt-cli": "latest",
         "grunt-env": "latest",
-        "formidable": "latest"
+        "formidable": "latest",
+        "markdown": "latest"
     },
     "devDependencies": {
         "supertest": "latest",

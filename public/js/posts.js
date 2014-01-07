@@ -81,7 +81,7 @@ if (getCurrentDirectory().toString().endWith('view/')) {
 } else {
 //    content = document.getElementById('contentRec').value || '';
 
-        opts = {
+    opts = {
 
         container: 'epiceditor',
         textarea: 'epictextarea',

@@ -12,19 +12,24 @@ var mongoose = require('mongoose'),
  * User Schema
  */
 var UserSchema = new Schema({
-    name: String,
-    email: String,
     username: {
         type: String,
         unique: true
     },
-    provider: String,
     hashed_password: String,
     salt: String,
-    facebook: {},
-    twitter: {},
-    github: {},
-    google: {}
+    name: String,
+    email: {
+        type:String,
+        unique:true
+    },
+    phone:{type:String, min:11,max:11},
+    idcard:{type:String, min:15, max:19},
+    birthday:{type:Date},
+    male:String,
+    roles:String,
+    createdAt:{type:Date, default:Date.now}
+
 });
 
 /**
