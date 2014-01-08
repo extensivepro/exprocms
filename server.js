@@ -24,18 +24,18 @@ var db = mongoose.connect(config.db);
 
 
 // 启动jekyll 服务
-var path_jekyll = __dirname;
-console.log("path_jekyll:" + path_jekyll);
-exec('cd ' + path_jekyll + '/public/article/ && jekyll serve -w',
-    function (error, stdout, stderr) {
-        console.log("执行了shell");
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
-        if (error !== null) {
-            console.log('exec error: ' + error);
-        }
-    }
-);
+//var path_jekyll = __dirname;
+//console.log("path_jekyll:" + path_jekyll);
+//exec('cd ' + path_jekyll + '/public/article/ && jekyll serve -w',
+//    function (error, stdout, stderr) {
+//        console.log("执行了shell");
+//        console.log('stdout: ' + stdout);
+//        console.log('stderr: ' + stderr);
+//        if (error !== null) {
+//            console.log('exec error: ' + error);
+//        }
+//    }
+//);
 
 
 
