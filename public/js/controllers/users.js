@@ -28,11 +28,11 @@ function UsersController($scope, Users, Pagination, $timeout, $injector){
 		}, hide:true}	
 	]
 	
-	// route
+//	route
 	$scope.showCreate = function() {
 		$scope.showEdit({password: '123456'})
 	}
-	
+
 	// bussiness
 	$scope.resetPassword = function(entity) {
 		entity.password = "654321"

@@ -1,6 +1,7 @@
 
-function ArticlesController($scope, $upload, $http, Articles, $route, Pagination, $timeout, $injector,$location){
+function ArticlesController($scope, $upload, $http, $injector, Articles, $route, Pagination, $timeout, $injector,$location){
 
+    $injector.invoke(BasicController, this, {$scope: $scope});
     $scope.post_rev_id="";
 
     $scope.reload = function() {
@@ -96,4 +97,5 @@ function ArticlesController($scope, $upload, $http, Articles, $route, Pagination
         });
     }
     fetch_data();
+    widthFunctions();
 }

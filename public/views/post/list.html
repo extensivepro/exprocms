@@ -1,5 +1,5 @@
-<div ng-controller="ArticlesController" data-ng-init='fetch_data()'>
-    <div>
+<div class="row-fluid" ng-controller="ArticlesController" data-ng-init='fetch_data()'>
+    <div class="span12">
         <ul style='list-style:none'>
 
             <li ng-repeat="post in posts" >
@@ -12,6 +12,5 @@
 
         <div ng-include="currentView">
         </div>
-
     </div>
 </div>
